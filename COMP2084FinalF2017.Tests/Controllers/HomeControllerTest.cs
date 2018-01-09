@@ -9,22 +9,49 @@ using COMP2084FinalF2017.Controllers;
 
 namespace COMP2084FinalF2017.Tests.Controllers
 {
-    [TestClass]
-    public class HomeControllerTest
-    {
-        [TestMethod]
-        public void Index()
+   
+        [TestClass]
+        public class HomeControllerTest
         {
-            // Arrange
-            HomeController controller = new HomeController();
+            [TestMethod]
+            public void Index()
+            {
+                // Arrange
+                HomeController controller = new HomeController();
 
-            // Act
-            ViewResult result = controller.Index() as ViewResult;
+                // Act
+                ViewResult result = controller.Index() as ViewResult;
 
-            // Assert
-            Assert.IsNotNull(result);
+                // Assert
+                Assert.IsNotNull(result);
+            }
+
+            [TestMethod]
+            public void About()
+            {
+                // Arrange
+                HomeController controller = new HomeController();
+
+                // Act
+                ViewResult result = controller.About() as ViewResult;
+
+                // Assert
+                Assert.AreEqual("Your application description page.", result.ViewBag.Message);
+            }
+
+            [TestMethod]
+            public void Contact()
+            {
+                // Arrange
+                HomeController controller = new HomeController();
+
+                // Act
+                ViewResult result = controller.Contact() as ViewResult;
+
+                // Assert
+                Assert.IsNotNull(result);
+            }
+
+
         }
-
-        
-    }
 }
